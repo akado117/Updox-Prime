@@ -7,5 +7,13 @@ import java.util.List;
 public interface PrimeNumberGenerator {
     List<Integer> generate (int startingValue, int endingValue );
 
+    int setHighLowAndReturnRange (int val1, int val2);
+
+    boolean isPrime (int value);
+
+    void setHighVal (int val);
+    void setLowVal (int val);
+    int getHighVal (int val);
+    int getLowVal (int val);
 
 }
