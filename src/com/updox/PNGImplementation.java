@@ -18,19 +18,23 @@ public class PNGImplementation implements PrimeNumberGenerator {
         setHighLow(startingValue,endingValue);
         List<Integer> primesToReturn = new ArrayList<Integer>(highVal-lowVal);
 
-        if(isWorthBuildingPrimeArry(highVal,lowVal)){
-            primeTestArray = buildPrimeArr(highVal);
-            for(int i = lowVal; i < highVal+1; i++){
-                if(primeTestArray[i]){
-                    primesToReturn.add(i);
+        if(highVal > 1 && lowVal > 1){
+            if(isWorthBuildingPrimeArry(highVal,lowVal)){
+                primeTestArray = buildPrimeArr(highVal);
+                for(int i = lowVal; i < highVal+1; i++){
+                    if(primeTestArray[i]){
+                        primesToReturn.add(i);
+                    }
+                }
+            } else {
+                for(int i = lowVal; i < highVal+1; i++){
+                    if(isPrime(i)){
+                        primesToReturn.add(i);
+                    }
                 }
             }
         } else {
-            for(int i = lowVal; i < highVal+1; i++){
-                if(isPrime(i)){
-                    primesToReturn.add(i);
-                }
-            }
+            System.out.println("high and low values aren't primes");
         }
 
         return primesToReturn;
@@ -64,7 +68,10 @@ public class PNGImplementation implements PrimeNumberGenerator {
 
             if(primeArr[i]) {//if isn't multiple of anything before consider prime, but remove any multiples of it.
                 for (int j=i;i*j<primeArr.length;j++) {
-                    primeArr[i * j] = false;
+                    int idx = i*j;
+                    if(idx > 1) {//to enable larger primes to be handled because of int wrap around
+                        primeArr[idx] = false;
+                    }
                 }
             }
         }

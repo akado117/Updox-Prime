@@ -36,6 +36,13 @@ public class PrimeNumberGeneratorTest {
     }
 
     @Test
+    public void generateDoesntRunIfHighAndLowArntAtLeastGreaterThan1(){
+        List<Integer> expected = new ArrayList<Integer>(3);
+
+        assertEquals(expected, pNG.generate(-1,0));
+    }
+
+    @Test
     public void generateReturnsArrayOfPrimesWithBackwardsRange(){
         List<Integer> expected = new ArrayList<Integer>(3);
         expected.add(7901);
