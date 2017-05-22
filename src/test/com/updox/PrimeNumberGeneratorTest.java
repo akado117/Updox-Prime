@@ -28,9 +28,9 @@ public class PrimeNumberGeneratorTest {
     @Test
     public void generateReturnsArrayOfPrimes(){
         List<Integer> expected = new ArrayList<Integer>(3);
-        expected.set(0,7901);
-        expected.set(0,7907);
-        expected.set(0,7919);
+        expected.add(7901);
+        expected.add(7907);
+        expected.add(7919);
 
         assertEquals(expected, pNG.generate(7900,7920));
     }
@@ -38,9 +38,9 @@ public class PrimeNumberGeneratorTest {
     @Test
     public void generateReturnsArrayOfPrimesWithBackwardsRange(){
         List<Integer> expected = new ArrayList<Integer>(3);
-        expected.set(0,7901);
-        expected.set(0,7907);
-        expected.set(0,7919);
+        expected.add(7901);
+        expected.add(7907);
+        expected.add(7919);
 
         assertEquals(expected, pNG.generate(7920,7900));
     }

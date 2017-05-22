@@ -1,5 +1,6 @@
 package updox;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -7,14 +8,32 @@ import java.util.List;
  * Created by akaid01 on 5/21/17.
  */
 public class PNGImplementation implements PrimeNumberGenerator {
-    private boolean[] primeTestArray;
+    boolean[] primeTestArray;
     private int highVal;
     private int lowVal;
 
 
     @Override //not sure about handling massive numbers beyond range of normal int in java 2147483647
     public List<Integer> generate(int startingValue, int endingValue) {
-        return null;
+        setHighLow(startingValue,endingValue);
+        List<Integer> primesToReturn = new ArrayList<Integer>(highVal-lowVal);
+
+        if(isWorthBuildingPrimeArry(highVal,lowVal)){
+            primeTestArray = buildPrimeArr(highVal);
+            for(int i = lowVal; i < highVal+1; i++){
+                if(primeTestArray[i]){
+                    primesToReturn.add(i);
+                }
+            }
+        } else {
+            for(int i = lowVal; i < highVal+1; i++){
+                if(isPrime(i)){
+                    primesToReturn.add(i);
+                }
+            }
+        }
+
+        return primesToReturn;
     }
 
     @Override
