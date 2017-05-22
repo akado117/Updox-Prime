@@ -1,4 +1,4 @@
-package com.updox;
+package updox;
 import java.util.List;
 
 /**
@@ -10,6 +10,10 @@ public interface PrimeNumberGenerator {
     void setHighLow (int val1, int val2);
 
     boolean isPrime (int value);
+
+    boolean isWorthBuildingPrimeArry (int lowValue, int highValue);
+
+    boolean[] buildPrimeArr(int highValue);
 
     int getHighVal ();
     int getLowVal ();

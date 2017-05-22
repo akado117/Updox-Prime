@@ -2,13 +2,14 @@ package updox;
 
 import com.updox.PrimeNumberGenerator;
 
+import java.lang.reflect.Array;
 import java.util.List;
 
 /**
  * Created by akaid01 on 5/21/17.
  */
 public class PNGImplementation implements PrimeNumberGenerator {
-    private List<Integer> primeTestArray;
+    private boolean[] primeTestArray;
     private int highVal;
     private int lowVal;
 
@@ -20,7 +21,13 @@ public class PNGImplementation implements PrimeNumberGenerator {
 
     @Override
     public boolean isPrime(int value) {
-        return false;
+        if (value%2==0) return false;
+
+        for(int i=3;i*i<=value;i+=2) {
+            if(value%i==0)
+                return false;
+        }
+        return true;
     }
 
     public void setHighLow(int val1, int val2) {

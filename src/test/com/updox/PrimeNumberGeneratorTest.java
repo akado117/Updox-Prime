@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
  * Created by akaid01 on 5/21/17.
  */
 public class PrimeNumberGeneratorTest {
-    private com.updox.PrimeNumberGenerator pNG;
+    private PNGImplementation pNG;
 
     @Before
     public void setUp() throws Exception {
@@ -55,6 +55,31 @@ public class PrimeNumberGeneratorTest {
     public void isPrimeReturnsFalseForNonPrimeNumber(){
         assertFalse(pNG.isPrime(7900));
         assertFalse(pNG.isPrime(1));
+    }
+
+    @Test
+    public void isWorthBuildingPrimeArryReturnsTrue(){
+        //if range is less than num calls by calling individual isPrime then arr should be built
+        assertTrue(pNG.isWorthBuildingPrimeArry(2,100));
+    }
+
+    @Test
+    public void isWorthBuildingPrimeArryReturnsFalse(){
+        //if range is less than num calls by calling individual isPrime then arr should be built
+        assertFalse(pNG.isWorthBuildingPrimeArry(100,101));
+    }
+
+    @Test
+    public void buildPrimeArrReturnsBoolArrOfPrimeOrNot(){
+        boolean[] example = new boolean[19];
+        int[] primes = {2,3,5,7,11,13,17};
+
+        for(int i =0; i < primes.length; i++){
+            example[primes[i]+1] = true;
+        }
+
+        assertArrayEquals(example, pNG.buildPrimeArr(18));
+
     }
 
     @Test
