@@ -55,18 +55,21 @@ public class PrimeNumberGeneratorTest {
     public void isPrimeReturnsFalseForNonPrimeNumber(){
         assertFalse(pNG.isPrime(7900));
         assertFalse(pNG.isPrime(1));
+        assertFalse(pNG.isPrime(-1));
     }
 
     @Test
-    public void isWorthBuildingPrimeArryReturnsTrue(){
+    public void isWorthBuildingPrimeArryReturnsTrueEvenIfParamsBackwards(){
         //if range is less than num calls by calling individual isPrime then arr should be built
         assertTrue(pNG.isWorthBuildingPrimeArry(2,100));
+        assertTrue(pNG.isWorthBuildingPrimeArry(100,2));
     }
 
     @Test
-    public void isWorthBuildingPrimeArryReturnsFalse(){
+    public void isWorthBuildingPrimeArryReturnsFalseEvenIfParamsBackwards(){
         //if range is less than num calls by calling individual isPrime then arr should be built
         assertFalse(pNG.isWorthBuildingPrimeArry(100,101));
+        assertFalse(pNG.isWorthBuildingPrimeArry(101,100));
     }
 
     @Test

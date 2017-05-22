@@ -12,7 +12,7 @@ public class PNGImplementation implements PrimeNumberGenerator {
     private int lowVal;
 
 
-    @Override
+    @Override //not sure about handling massive numbers beyond range of normal int in java 2147483647
     public List<Integer> generate(int startingValue, int endingValue) {
         return null;
     }
@@ -54,9 +54,9 @@ public class PNGImplementation implements PrimeNumberGenerator {
 
     @Override
     public boolean isPrime(int value) {
-        if (value%2==0) return false;
+        if (value < 2 || (value!=2 && value%2==0)) return false;//check if less than 2 or multiple of 2 but not 2
 
-        for(int i=3;i*i<=value;i+=2) {
+        for(int i=3;i*i<=value;i+=2) {//skips every other and starts at 3
             if(value%i==0)
                 return false;
         }
