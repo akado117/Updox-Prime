@@ -75,7 +75,7 @@ public class PrimeNumberGeneratorTest {
         int[] primes = {2,3,5,7,11,13,17};
 
         for(int i =0; i < primes.length; i++){
-            example[primes[i]+1] = true;
+            example[primes[i]] = true;
         }
 
         assertArrayEquals(example, pNG.buildPrimeArr(18));
