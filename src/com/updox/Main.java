@@ -1,4 +1,4 @@
-package com.updox;
+package updox;
 
 public class Main {
 

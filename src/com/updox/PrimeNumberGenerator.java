@@ -11,9 +11,7 @@ public interface PrimeNumberGenerator {
 
     boolean isPrime (int value);
 
-    void setHighVal (int val);
-    void setLowVal (int val);
-    int getHighVal (int val);
-    int getLowVal (int val);
+    int getHighVal ();
+    int getLowVal ();
 
 }

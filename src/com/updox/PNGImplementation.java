@@ -1,4 +1,6 @@
-package com.updox;
+package updox;
+
+import com.updox.PrimeNumberGenerator;
 
 import java.util.List;
 
@@ -11,24 +13,41 @@ public class PNGImplementation implements PrimeNumberGenerator {
     private int lowVal;
 
 
+    @Override
+    public List<Integer> generate(int startingValue, int endingValue) {
+        return null;
+    }
 
+    @Override
+    public boolean isPrime(int value) {
+        return false;
+    }
 
+    public void setHighLow(int val1, int val2) {
+        if(val1 < val2){
+            setLowVal(val1);
+            setHighVal(val2);
+        } else {
+            setLowVal(val2);
+            setHighVal(val1);
+        }
+    }
 
+    @Override
     public int getHighVal() {
         return highVal;
     }
 
-    @Override
-    public void setHighVal(int highVal) {
+    private void setHighVal(int highVal) {
         this.highVal = highVal;
     }
 
+    @Override
     public int getLowVal() {
         return lowVal;
     }
 
-    @Override
-    public void setLowVal(int lowVal) {
+    private void setLowVal(int lowVal) {
         this.lowVal = lowVal;
     }
 
