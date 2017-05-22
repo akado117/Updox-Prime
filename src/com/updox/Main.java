@@ -27,8 +27,16 @@ public class Main {
 
         List<Integer> primes = pNG.generate(pNG.getLowVal(), pNG.getHighVal());
 
+        StringBuilder sb = new StringBuilder();
         for(int prime: primes){
-            System.out.print(prime + ", ");
+            sb.append(prime + ", ");
         }
+
+        int i = 0;
+        while (i + 100 < sb.length() && (i = sb.lastIndexOf(" ", i + 100)) != -1) {
+            sb.replace(i, i + 1, "\n");
+        }
+
+        System.out.println(sb.toString());
     }
 }
